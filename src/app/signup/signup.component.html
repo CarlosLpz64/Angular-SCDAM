@@ -1,0 +1,34 @@
+<div class="miFondo">
+    <div class="wrapper">
+        <div class="container">
+            <h1> REGISTRARSE</h1>
+            <form class="form" [formGroup]="loginForm">
+                <span>Username:</span>
+                <input formControlName="username" type="text" placeholder="Username">
+                <span>Correo:</span>
+                <input formControlName="email" type="email" placeholder="Correo">
+                <span>Contraseña:</span>
+                <input formControlName="password" type="password" placeholder="Contraseña">
+                <span>Confirmar contraseña:</span>
+                <input formControlName="passwordConfirmation" type="password" placeholder="Contraseña">
+                <button (click)="login()" type="submit" id="login-button">Iniciar sesión</button>
+            </form>
+
+        </div>
+
+
+        
+        <ul class="bg-bubbles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</div>

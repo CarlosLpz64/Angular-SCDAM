@@ -1,0 +1,30 @@
+<div class="miFondo">
+    <div class="wrapper">
+        <div class="container">
+            <h1>¡Bienvenido!</h1>
+            <form class="form" [formGroup]="loginForm">
+                <input formControlName="email" type="email" placeholder="Correo">
+                <input formControlName="password" type="password" placeholder="Contraseña">
+                <button (click)="login()" type="submit" id="login-button">Iniciar sesión</button>
+                <br> <br>
+                <a routerLink="/signup"> ¿Eres nuevo aquí?</a>
+            </form>
+
+        </div>
+
+
+        
+        <ul class="bg-bubbles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</div>

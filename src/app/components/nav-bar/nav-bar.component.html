@@ -1,0 +1,36 @@
+<div id="main">
+    <div class="fixed-top">
+      <nav>
+        <div class="nav-fostrap">
+          <ul>
+            <!-- HOME -->
+            <li><a routerLink="/home">Home</a></li>
+            <!-- USUARIOS -->
+            <li><a>Usuarios<span class="arrow-down"></span></a>
+              <ul class="dropdown">
+                <li><a routerLink="/indice"> Editar usuarios </a></li>
+              </ul>
+            </li>
+            <!-- REGISTROS GENERALES -->
+            <li><a>Sensores<span class="arrow-down"></span></a>
+              <ul class="dropdown">
+                <li><a routerLink="/actores"> Nuevo Sensor </a></li>
+                <li><a routerLink="/directores"> Editar Sensores </a></li>
+                <li><a routerLink="/categorias"> Consultar Sensores </a></li>
+              </ul>
+            </li>
+            <!-- SELECCIONAR CINE -->
+            <li><a routerLink="/cines">Registros</a></li>
+            <!-- OPCIONES POR CINE -->
+            <li><a>Mi Raspberry<span class="arrow-down"></span></a>
+              <ul class="dropdown">
+                <li><a routerLink="/pines"> Ver puertos GPIO </a></li>
+              </ul>
+            </li>
+            <!-- CERRAR SESIÓN -->
+            <li><a (click)="logout()" class="cerrarSesion">Cerrar sesión</a></li>
+          </ul>
+        </div>
+      </nav>
+  </div>
+  </div>

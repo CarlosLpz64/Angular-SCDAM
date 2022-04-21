@@ -1,0 +1,249 @@
+<div class="flex-container">
+    <div class="flex-column-1">
+        <button class="pin-button voltaje" disabled> 3.3V</button>
+
+        <button class="pin-button" 
+        [class.ocupado]="pines[0].Usado" 
+        [disabled]="pines[0].Usado"
+        [class.disponible]="!pines[0].Usado"
+        > 
+        GPIO 02
+        </button>
+
+        <button class="pin-button" 
+        [class.ocupado]="pines[1].Usado" 
+        [disabled]="pines[1].Usado"
+        [class.disponible]="!pines[1].Usado"
+        > 
+        GPIO 03
+        </button>
+
+        <button class="pin-button" 
+        [class.ocupado]="pines[2].Usado" 
+        [disabled]="pines[2].Usado"
+        [class.disponible]="!pines[2].Usado"
+        > 
+        GPIO 04
+        </button>
+
+        <button class="pin-button voltaje" disabled> 3.3V</button>
+
+
+        <button class="pin-button" 
+        [class.ocupado]="pines[5].Usado" 
+        [disabled]="pines[5].Usado"
+        [class.disponible]="!pines[5].Usado"
+        > 
+        GPIO 17
+        </button>
+
+        <button class="pin-button" 
+        [class.ocupado]="pines[7].Usado" 
+        [disabled]="pines[7].Usado"
+        [class.disponible]="!pines[7].Usado"
+        > 
+        GPIO 27
+        </button>
+
+        <button class="pin-button" 
+        [class.ocupado]="pines[8].Usado" 
+        [disabled]="pines[8].Usado"
+        [class.disponible]="!pines[8].Usado"
+        > 
+        GPIO 22
+        </button>
+
+        <button class="pin-button voltaje" disabled> 3.3V</button>
+
+
+        <button class="pin-button" 
+        [class.ocupado]="pines[11].Usado" 
+        [disabled]="pines[11].Usado"
+        [class.disponible]="!pines[11].Usado"
+        > 
+        GPIO 10
+        </button>
+
+        <button class="pin-button" 
+        [class.ocupado]="pines[12].Usado" 
+        [disabled]="pines[12].Usado"
+        [class.disponible]="!pines[12].Usado"
+        > 
+        GPIO 09
+        </button>
+
+        <button class="pin-button" 
+        [class.ocupado]="pines[14].Usado" 
+        [disabled]="pines[14].Usado"
+        [class.disponible]="!pines[14].Usado"
+        > 
+        GPIO 11
+        </button>
+
+        <button class="pin-button ground" disabled> GND</button>
+
+
+        <button class="pin-button otro" disabled> SD</button>
+
+
+        <button class="pin-button" 
+        [class.ocupado]="pines[19].Usado" 
+        [disabled]="pines[19].Usado"
+        [class.disponible]="!pines[19].Usado"
+        > 
+        GPIO 05
+        </button>
+
+        <button class="pin-button" 
+        [class.ocupado]="pines[20].Usado" 
+        [disabled]="pines[20].Usado"
+        [class.disponible]="!pines[20].Usado"
+        > 
+        GPIO 06
+        </button>
+
+        <button class="pin-button" 
+        [class.ocupado]="pines[22].Usado" 
+        [disabled]="pines[22].Usado"
+        [class.disponible]="!pines[22].Usado"
+        > 
+        GPIO 13
+        </button>
+
+        <button class="pin-button" 
+        [class.ocupado]="pines[23].Usado" 
+        [disabled]="pines[23].Usado"
+        [class.disponible]="!pines[23].Usado"
+        > 
+        GPIO 19
+        </button>
+
+        <button class="pin-button" 
+        [class.ocupado]="pines[25].Usado" 
+        [disabled]="pines[25].Usado"
+        [class.disponible]="!pines[25].Usado"
+        > 
+        GPIO 26
+        </button>
+
+        <button class="pin-button ground" disabled> GND</button>
+
+
+        
+    </div>
+    <div class="flex-column-2">
+        <img src="https://www.computerhilfen.de/info/wp-content/uploads/2016/04/raspberry-gpio-pin-belegung.png">
+    </div>
+    <div class="flex-column-1">
+        <button class="pin-button voltaje" disabled> 5V</button>
+        <button class="pin-button voltaje" disabled> 5V</button>
+
+        <button class="pin-button ground" disabled> GND</button>
+
+        <button class="pin-button" 
+        [class.ocupado]="pines[3].Usado" 
+        [disabled]="pines[3].Usado"
+        [class.disponible]="!pines[3].Usado"
+        > 
+        GPIO 14
+        </button>
+
+        <button class="pin-button" 
+        [class.ocupado]="pines[4].Usado" 
+        [disabled]="pines[4].Usado"
+        [class.disponible]="!pines[4].Usado"
+        > 
+        GPIO 15
+        </button>
+
+        <button class="pin-button" 
+        [class.ocupado]="pines[6].Usado" 
+        [disabled]="pines[6].Usado"
+        [class.disponible]="!pines[6].Usado"
+        > 
+        GPIO 18
+        </button>
+
+        <button class="pin-button ground" disabled> GND</button>
+
+        <button class="pin-button" 
+        [class.ocupado]="pines[9].Usado" 
+        [disabled]="pines[9].Usado"
+        [class.disponible]="!pines[9].Usado"
+        > 
+        GPIO 23
+        </button>
+
+        <button class="pin-button" 
+        [class.ocupado]="pines[10].Usado" 
+        [disabled]="pines[10].Usado"
+        [class.disponible]="!pines[10].Usado"
+        > 
+        GPIO 24
+        </button>
+
+        <button class="pin-button ground" disabled> GND</button>
+
+        <button class="pin-button" 
+        [class.ocupado]="pines[13].Usado" 
+        [disabled]="pines[13].Usado"
+        [class.disponible]="!pines[13].Usado"
+        > 
+        GPIO 25
+        </button>
+
+        <button class="pin-button" 
+        [class.ocupado]="pines[15].Usado" 
+        [disabled]="pines[15].Usado"
+        [class.disponible]="!pines[15].Usado"
+        > 
+        GPIO 08
+        </button>
+
+        <button class="pin-button" 
+        [class.ocupado]="pines[16].Usado" 
+        [disabled]="pines[16].Usado"
+        [class.disponible]="!pines[16].Usado"
+        > 
+        GPIO 07
+        </button>
+
+        <button class="pin-button otro" disabled> SC</button>
+
+        <button class="pin-button ground" disabled> GND</button>
+
+        <button class="pin-button" 
+        [class.ocupado]="pines[21].Usado" 
+        [disabled]="pines[21].Usado"
+        [class.disponible]="!pines[21].Usado"
+        > 
+        GPIO 12
+        </button>
+
+        <button class="pin-button ground" disabled> GND</button>
+
+        <button class="pin-button" 
+        [class.ocupado]="pines[24].Usado" 
+        [disabled]="pines[24].Usado"
+        [class.disponible]="!pines[24].Usado"
+        > 
+        GPIO 16
+        </button>
+
+        <button class="pin-button" 
+        [class.ocupado]="pines[26].Usado" 
+        [disabled]="pines[26].Usado"
+        [class.disponible]="!pines[26].Usado"
+        > 
+        GPIO 20
+        </button>
+
+        <button class="pin-button" 
+        [class.ocupado]="pines[27].Usado" 
+        [disabled]="pines[27].Usado"
+        [class.disponible]="!pines[27].Usado"
+        > 
+        GPIO 21
+        </button>
+    </div>
+</div>

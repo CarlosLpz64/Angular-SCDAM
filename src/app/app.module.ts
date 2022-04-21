@@ -3,14 +3,33 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { HomeComponent } from './home/home.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+
+//Imports
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { PinesGPIOComponent } from './components/pages/pines-gpio/pines-gpio.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    SignupComponent,
+    HomeComponent,
+    NotFoundComponent,
+    NavBarComponent,
+    PinesGPIOComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule, //Nesesario para forms
+    FormsModule, //Necesario para ngModel
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
