@@ -156,4 +156,12 @@ export class PinesGPIOComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  puertoSeleccionado(board: number){
+      this.pines.forEach(element => {
+          if (element.board == board){
+              alert(element.BCM)
+          }
+      });
+  }
+
 }

@@ -6,33 +6,37 @@
         [class.ocupado]="pines[0].Usado" 
         [disabled]="pines[0].Usado"
         [class.disponible]="!pines[0].Usado"
+        (click)="puertoSeleccionado(3)"
         > 
-        GPIO 02
+        GPIO 02 (SDA)
         </button>
 
         <button class="pin-button" 
         [class.ocupado]="pines[1].Usado" 
         [disabled]="pines[1].Usado"
         [class.disponible]="!pines[1].Usado"
+        (click)="puertoSeleccionado(5)"
         > 
-        GPIO 03
+        GPIO 03 (SCL)
         </button>
 
         <button class="pin-button" 
         [class.ocupado]="pines[2].Usado" 
         [disabled]="pines[2].Usado"
         [class.disponible]="!pines[2].Usado"
+        (click)="puertoSeleccionado(7)"
         > 
         GPIO 04
         </button>
 
-        <button class="pin-button voltaje" disabled> 3.3V</button>
+        <button class="pin-button ground" disabled> GND</button>
 
 
         <button class="pin-button" 
         [class.ocupado]="pines[5].Usado" 
         [disabled]="pines[5].Usado"
         [class.disponible]="!pines[5].Usado"
+        (click)="puertoSeleccionado(11)"
         > 
         GPIO 17
         </button>
@@ -41,6 +45,7 @@
         [class.ocupado]="pines[7].Usado" 
         [disabled]="pines[7].Usado"
         [class.disponible]="!pines[7].Usado"
+        (click)="puertoSeleccionado(13)"
         > 
         GPIO 27
         </button>
@@ -49,6 +54,7 @@
         [class.ocupado]="pines[8].Usado" 
         [disabled]="pines[8].Usado"
         [class.disponible]="!pines[8].Usado"
+        (click)="puertoSeleccionado(15)"
         > 
         GPIO 22
         </button>
@@ -60,24 +66,27 @@
         [class.ocupado]="pines[11].Usado" 
         [disabled]="pines[11].Usado"
         [class.disponible]="!pines[11].Usado"
+        (click)="puertoSeleccionado(19)"
         > 
-        GPIO 10
+        GPIO 10 (MOSI)
         </button>
 
         <button class="pin-button" 
         [class.ocupado]="pines[12].Usado" 
         [disabled]="pines[12].Usado"
         [class.disponible]="!pines[12].Usado"
+        (click)="puertoSeleccionado(21)"
         > 
-        GPIO 09
+        GPIO 09 (MOSO)
         </button>
 
         <button class="pin-button" 
         [class.ocupado]="pines[14].Usado" 
         [disabled]="pines[14].Usado"
         [class.disponible]="!pines[14].Usado"
+        (click)="puertoSeleccionado(23)"
         > 
-        GPIO 11
+        GPIO 11 (SCLK)
         </button>
 
         <button class="pin-button ground" disabled> GND</button>
@@ -90,6 +99,7 @@
         [class.ocupado]="pines[19].Usado" 
         [disabled]="pines[19].Usado"
         [class.disponible]="!pines[19].Usado"
+        (click)="puertoSeleccionado(29)"
         > 
         GPIO 05
         </button>
@@ -98,6 +108,7 @@
         [class.ocupado]="pines[20].Usado" 
         [disabled]="pines[20].Usado"
         [class.disponible]="!pines[20].Usado"
+        (click)="puertoSeleccionado(31)"
         > 
         GPIO 06
         </button>
@@ -106,6 +117,7 @@
         [class.ocupado]="pines[22].Usado" 
         [disabled]="pines[22].Usado"
         [class.disponible]="!pines[22].Usado"
+        (click)="puertoSeleccionado(33)"
         > 
         GPIO 13
         </button>
@@ -114,6 +126,7 @@
         [class.ocupado]="pines[23].Usado" 
         [disabled]="pines[23].Usado"
         [class.disponible]="!pines[23].Usado"
+        (click)="puertoSeleccionado(35)"
         > 
         GPIO 19
         </button>
@@ -122,6 +135,7 @@
         [class.ocupado]="pines[25].Usado" 
         [disabled]="pines[25].Usado"
         [class.disponible]="!pines[25].Usado"
+        (click)="puertoSeleccionado(37)"
         > 
         GPIO 26
         </button>
@@ -144,22 +158,25 @@
         [class.ocupado]="pines[3].Usado" 
         [disabled]="pines[3].Usado"
         [class.disponible]="!pines[3].Usado"
+        (click)="puertoSeleccionado(8)"
         > 
-        GPIO 14
+        GPIO 14 (TXD)
         </button>
 
         <button class="pin-button" 
         [class.ocupado]="pines[4].Usado" 
         [disabled]="pines[4].Usado"
         [class.disponible]="!pines[4].Usado"
+        (click)="puertoSeleccionado(10)"
         > 
-        GPIO 15
+        GPIO 15 (RXD)
         </button>
 
         <button class="pin-button" 
         [class.ocupado]="pines[6].Usado" 
         [disabled]="pines[6].Usado"
         [class.disponible]="!pines[6].Usado"
+        (click)="puertoSeleccionado(12)"
         > 
         GPIO 18
         </button>
@@ -170,6 +187,7 @@
         [class.ocupado]="pines[9].Usado" 
         [disabled]="pines[9].Usado"
         [class.disponible]="!pines[9].Usado"
+        (click)="puertoSeleccionado(16)"
         > 
         GPIO 23
         </button>
@@ -178,6 +196,7 @@
         [class.ocupado]="pines[10].Usado" 
         [disabled]="pines[10].Usado"
         [class.disponible]="!pines[10].Usado"
+        (click)="puertoSeleccionado(18)"
         > 
         GPIO 24
         </button>
@@ -188,6 +207,7 @@
         [class.ocupado]="pines[13].Usado" 
         [disabled]="pines[13].Usado"
         [class.disponible]="!pines[13].Usado"
+        (click)="puertoSeleccionado(22)"
         > 
         GPIO 25
         </button>
@@ -196,16 +216,18 @@
         [class.ocupado]="pines[15].Usado" 
         [disabled]="pines[15].Usado"
         [class.disponible]="!pines[15].Usado"
+        (click)="puertoSeleccionado(24)"
         > 
-        GPIO 08
+        GPIO 08 (CE0)
         </button>
 
         <button class="pin-button" 
         [class.ocupado]="pines[16].Usado" 
         [disabled]="pines[16].Usado"
         [class.disponible]="!pines[16].Usado"
+        (click)="puertoSeleccionado(26)"
         > 
-        GPIO 07
+        GPIO 07 (CE1)
         </button>
 
         <button class="pin-button otro" disabled> SC</button>
@@ -216,6 +238,7 @@
         [class.ocupado]="pines[21].Usado" 
         [disabled]="pines[21].Usado"
         [class.disponible]="!pines[21].Usado"
+        (click)="puertoSeleccionado(32)"
         > 
         GPIO 12
         </button>
@@ -226,6 +249,7 @@
         [class.ocupado]="pines[24].Usado" 
         [disabled]="pines[24].Usado"
         [class.disponible]="!pines[24].Usado"
+        (click)="puertoSeleccionado(36)"
         > 
         GPIO 16
         </button>
@@ -234,6 +258,7 @@
         [class.ocupado]="pines[26].Usado" 
         [disabled]="pines[26].Usado"
         [class.disponible]="!pines[26].Usado"
+        (click)="puertoSeleccionado(38)"
         > 
         GPIO 20
         </button>
@@ -242,6 +267,7 @@
         [class.ocupado]="pines[27].Usado" 
         [disabled]="pines[27].Usado"
         [class.disponible]="!pines[27].Usado"
+        (click)="puertoSeleccionado(40)"
         > 
         GPIO 21
         </button>
