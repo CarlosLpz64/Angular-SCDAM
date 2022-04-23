@@ -1,0 +1,25 @@
+<h1>USUARIOS</h1>
+<br>
+<h1>USUARIOS</h1>
+
+<div class="container">
+  <div class="abs-center">
+      <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">NFC</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let list of ListaUsuarios">
+              <td>{{list.id}}</td>
+              <td>{{list.nombre}}</td>
+              <td>{{list.NFC}}</td>
+          </tr>
+          </tbody>
+        </table>
+      
+  </div>
+</div>

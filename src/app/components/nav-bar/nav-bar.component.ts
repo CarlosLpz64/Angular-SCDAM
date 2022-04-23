@@ -35,6 +35,10 @@ export class NavBarComponent implements OnInit {
       complete: () => [console.info('complete'), this.curpService.isLoading = false ]
     })
     */
+    
+      //this.rol = '0';
+      localStorage.removeItem('token');
+      
     this.router.navigate(['/login']);
   }
 

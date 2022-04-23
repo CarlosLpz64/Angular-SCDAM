@@ -1,0 +1,23 @@
+<h1>ola</h1>
+<br>
+<h1>ZONAS</h1>
+
+<div class="container">
+  <div class="abs-center">
+      <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">ID De Zona</th>
+              <th scope="col">Nombre de la Zona</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let zon of ListaZonas">
+              <td>{{zon.id}}</td>
+              <td>{{zon.nombre}}</td>
+          </tr>
+          </tbody>
+        </table>
+      
+  </div>
+</div>

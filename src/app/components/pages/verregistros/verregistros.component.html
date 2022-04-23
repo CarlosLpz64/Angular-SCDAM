@@ -1,0 +1,29 @@
+<h1>ola</h1>
+<br>
+<h1>REGISTROS</h1>
+
+<div class="container">
+  <div class="abs-center">
+      <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">ID del Sensor</th>
+              <th scope="col">Nombre del Sensor</th>
+              <th scope="col">Unidad</th>
+              <th scope="col">Valor</th>
+              <th scope="col">Fecha</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let reg of ListaRegistro">
+              <td>{{reg.SensorID}}</td>
+              <td>{{reg.Sensor}}</td>
+              <td>{{reg.Unidad}}</td>
+              <td>{{reg.Valor}}</td>
+              <td>{{reg.Fecha}}</td>
+          </tr>
+          </tbody>
+        </table>
+      
+  </div>
+</div>

@@ -13,6 +13,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { PinesGPIOComponent } from './components/pages/pines-gpio/pines-gpio.component';
+import { GraficaComponent } from './components/pages/grafica/grafica.component';
+import { VerusuariosComponent } from './components/pages/usuarios/verusuarios/verusuarios.component';
+import { VerregistrosComponent } from './components/pages/verregistros/verregistros.component';
+import { VerzonasComponent } from './components/pages/verzonas/verzonas.component';
 
 @NgModule({
   declarations: [
@@ -22,14 +26,20 @@ import { PinesGPIOComponent } from './components/pages/pines-gpio/pines-gpio.com
     HomeComponent,
     NotFoundComponent,
     NavBarComponent,
-    PinesGPIOComponent
+    PinesGPIOComponent,
+    GraficaComponent,
+    VerusuariosComponent,
+    VerregistrosComponent,
+    VerzonasComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule, //Nesesario para forms
     FormsModule, //Necesario para ngModel
-    HttpClientModule
+    HttpClientModule,
+    
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
