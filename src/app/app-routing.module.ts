@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { GraficaComponent } from './components/pages/grafica/grafica.component';
 import { PinesGPIOComponent } from './components/pages/pines-gpio/pines-gpio.component';
+import { RegistrarzonaComponent } from './components/pages/registrarzona/registrarzona.component';
+import { RegistrasensorComponent } from './components/pages/registrasensor/registrasensor.component';
 import { VerusuariosComponent } from './components/pages/usuarios/verusuarios/verusuarios.component';
 import { VerregistrosComponent } from './components/pages/verregistros/verregistros.component';
 import { VerzonasComponent } from './components/pages/verzonas/verzonas.component';
@@ -20,6 +22,9 @@ const routes: Routes = [
   {path: 'verusuarios',component: VerusuariosComponent},
   {path: 'verregistros', component:VerregistrosComponent},
   {path: 'verzonas',component:VerzonasComponent},
+  {path: 'registrarzona', component:RegistrarzonaComponent},
+  {path: 'registrarsensor', component:RegistrasensorComponent},
+  
   {path: '**', component: NotFoundComponent}
 ];
 

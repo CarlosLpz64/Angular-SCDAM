@@ -18,6 +18,19 @@ import { VerusuariosComponent } from './components/pages/usuarios/verusuarios/ve
 import { VerregistrosComponent } from './components/pages/verregistros/verregistros.component';
 import { VerzonasComponent } from './components/pages/verzonas/verzonas.component';
 
+//angular
+import {MatTableModule} from '@angular/material/table';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatInputModule} from '@angular/material/input';
+import {MatSortModule} from '@angular/material/sort';
+
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RegistrarzonaComponent } from './components/pages/registrarzona/registrarzona.component';
+import { RegistrasensorComponent } from './components/pages/registrasensor/registrasensor.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +43,9 @@ import { VerzonasComponent } from './components/pages/verzonas/verzonas.componen
     GraficaComponent,
     VerusuariosComponent,
     VerregistrosComponent,
-    VerzonasComponent
+    VerzonasComponent,
+    RegistrarzonaComponent,
+    RegistrasensorComponent
   ],
   imports: [
     BrowserModule,
@@ -38,8 +53,13 @@ import { VerzonasComponent } from './components/pages/verzonas/verzonas.componen
     ReactiveFormsModule, //Nesesario para forms
     FormsModule, //Necesario para ngModel
     HttpClientModule,
-    
-    
+    MatTableModule,
+    MatFormFieldModule,
+    MatPaginatorModule,
+    MatInputModule,
+    BrowserAnimationsModule,
+    MatSortModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

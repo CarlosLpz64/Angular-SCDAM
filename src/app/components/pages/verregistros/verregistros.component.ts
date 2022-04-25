@@ -1,120 +1,82 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 import { Registros } from 'src/app/models/registros';
+import { RegistrosService } from 'src/app/servicios/registros.service';
+
+export interface RegistroElement {
+  SensorID: number,
+  Sensor:string,
+  Unidad:string,
+  Valor:number,
+  Fecha: string
+}
 
 @Component({
   selector: 'app-verregistros',
   templateUrl: './verregistros.component.html',
   styleUrls: ['./verregistros.component.css']
 })
-export class VerregistrosComponent implements OnInit {
+export class VerregistrosComponent implements OnInit, AfterViewInit {
+  displayedColumns: string[] = ['Sensor','Unidad','Valor','Fecha' ];
+  dataSource !: MatTableDataSource<RegistroElement>;
 
-  constructor() { }
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
+  ListaRegistro: Registros[] = [];
+
+  constructor(private miServicio:RegistrosService) { }
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
+ 
   ngOnInit(): void {
-    this.faker();
-    this.llenarFecha();
-    this.llenarVal()
-    
-    this.miInterval = setInterval(()=>{
+    this.miInterval = setInterval(() => {
       console.log('hi')
     }, 1000);
+    //  this.faker();
+    this.cargarInfo();
   }
-  ngOnDestroy(){
-    if (this.miInterval){
+  ngOnDestroy() {
+    if (this.miInterval) {
       clearInterval(this.miInterval);
     }
   }
 
   miInterval:any;
-  ListaRegistro: Registros[] = [];
   ListaValores:number[]=[];
   ListaFecha: string[] = [];
   titulito!: string;
 
-  aux !: Registros;
-  faker(){
-    var aux = {
-      SensorID: 2, 
-      Sensor:'PIR',
-      Unidad:'sensor desactivado',
-      Valor:61,
-      Fecha: "2022 Apr 21 11:14:59"
-    }
-    this.ListaRegistro.push(aux)
-    var aux = {
-      SensorID: 2, 
-      Sensor:'PIR',
-      Unidad:'sensor desactivado',
-      Valor:24,
-      Fecha: "2022 Apr 21 11:15:59"
-    }
-    this.ListaRegistro.push(aux)
-    var aux = {
-      SensorID: 2, 
-      Sensor:'PIR',
-      Unidad:'sensor desactivado',
-      Valor:1,
-      Fecha: "2022 Apr 21 11:16:59"
-    }
-    this.ListaRegistro.push(aux)
-    var aux = {
-      SensorID: 2, 
-      Sensor:'PIR',
-      Unidad:'sensor desactivado',
-      Valor:90,
-      Fecha: "2022 Apr 21 11:17:59"
-    }
-    this.ListaRegistro.push(aux)
-    var aux = {
-      SensorID: 2, 
-      Sensor:'PIR',
-      Unidad:'sensor desactivado',
-      Valor:55,
-      Fecha: "2022 Apr 21 11:18:59"
-    }
-    this.ListaRegistro.push(aux)
-    var aux = {
-      SensorID: 2, 
-      Sensor:'PIR',
-      Unidad:'sensor desactivado',
-      Valor:35,
-      Fecha: "2022 Apr 21 11:19:59"
-    }
-    this.ListaRegistro.push(aux)
-    var aux = {
-      SensorID: 2, 
-      Sensor:'PIR',
-      Unidad:'sensor desactivado',
-      Valor:41,
-      Fecha: "2022 Apr 21 11:20:59"
-    }
-    this.ListaRegistro.push(aux)
-    var aux = {
-      SensorID: 2, 
-      Sensor:'PIR',
-      Unidad:'sensor desactivado',
-      Valor:12,
-      Fecha: "2022 Apr 21 11:21:59"
-    }
-    this.ListaRegistro.push(aux)
-    var aux = {
-      SensorID: 2, 
-      Sensor:'PIR',
-      Unidad:'sensor desactivado',
-      Valor:72,
-      Fecha: "2022 Apr 21 11:22:59"
-    }
-    this.ListaRegistro.push(aux)
-    var aux = {
-      SensorID: 2, 
-      Sensor:'PIR',
-      Unidad:'sensor desactivado',
-      Valor:3,
-      Fecha: "2022 Apr 21 11:23:59"
-    }
-    this.ListaRegistro.push(aux)
 
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
+  cargarInfo(){
+    this.miServicio.mostrarRegistros().subscribe({
+      next: (r) => [
+      console.log(r.data),
+      this.ListaRegistro = r.data,
+      this.dataSource = new MatTableDataSource(this.ListaRegistro),
+      this.dataSource.sort = this.sort,
+      this.dataSource.paginator = this.paginator],
+      error: (e) => [console.error(e)],
+      complete: () => [console.info('complete'),    
+      console.log(this.ListaRegistro)
+      ]
+    })
+    return
+  }
+
   llenarVal(){
     this.ListaValores = [];
     this.ListaRegistro.forEach(i =>  {
@@ -129,8 +91,4 @@ export class VerregistrosComponent implements OnInit {
       this.ListaFecha.push(aux)
     })
   }
-
-
-
-
 }
