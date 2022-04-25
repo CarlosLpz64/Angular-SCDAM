@@ -25,6 +25,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatInputModule} from '@angular/material/input';
 import {MatSortModule} from '@angular/material/sort';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
 
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -63,8 +65,9 @@ import { AltaSensorComponent } from './components/pages/alta-sensor/alta-sensor.
     MatInputModule,
     BrowserAnimationsModule,
     MatSortModule,
-    MatDialogModule
-
+    MatDialogModule,
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [
     {
