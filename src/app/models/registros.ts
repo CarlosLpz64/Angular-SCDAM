@@ -5,3 +5,10 @@ export interface Registros {
     Valor:number,
     Fecha: string
 }
+export interface Sensores {
+    SensorID: number,
+    Sensor:string,
+    Unidad:string,
+    Valor:number,
+    Fecha: string
+}
