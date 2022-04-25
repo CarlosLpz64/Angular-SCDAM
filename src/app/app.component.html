@@ -1,2 +1,7 @@
-<app-nav-bar></app-nav-bar>
+<app-loading-screen  [class.ocultar]="!variablesGlobales.isLoading"></app-loading-screen>
+
+<app-nav-bar ></app-nav-bar>
+
+<div style="margin-bottom: 50px;" [class.ocultar]="!variablesGlobales.isLogged"></div>
+
 <router-outlet></router-outlet>

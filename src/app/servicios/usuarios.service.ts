@@ -15,14 +15,21 @@ export class UsuariosService {
   registrarUsuario(us:UsuariosRegis):Observable<any>{
       return this.http.post(`${this.apiURL}auth/v1/register`,us);
   }
-  login(lo:UsuariosLog):Observable<any>{
-    return this.http.post(`${this.apiURL}auth/v1/login`,lo);
+
+  login(data:UsuariosLog):Observable<any>{
+    return this.http.post(`${this.apiURL}auth/v1/login`,data);
+  }
+
+  logout():Observable<any>{
+    return this.http.get(`${this.apiURL}auth/v1/logout`);
   }
 
   mostrarUsuarios():Observable<any>{
-    let headers = new HttpHeaders().set('Authorization','bearer ' + 'NjY.E5fCA4pCjM2X-ojNL13vNo0Ld7OUPakJqfo5cO0Cov0btxgwubVFLTaQ9lgB')
-    const url = `${this.apiURL}auth/v1/users/`;
-    return this.http.get<any>(url,{headers});
-}
+    return this.http.get<any>(`${this.apiURL}auth/v1/users/`);
+  }
+
+  miPerfil():Observable<any>{
+    return this.http.get<any>(`${this.apiURL}auth/v1/userData/`);
+  }
 
 }

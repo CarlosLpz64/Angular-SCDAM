@@ -3,6 +3,7 @@
         <div class="container">
             <h1>¡Bienvenido!</h1>
             <form class="form" [formGroup]="loginForm" (ngSubmit)="login()">
+
                 <span>Correo:</span>
                 <input [class.is-invalid]="loginForm.get('email')?.touched 
                 && loginForm.get('email')?.invalid" type="text" class="form-control" placeholder="ana123@gmail.com"
@@ -10,13 +11,11 @@
                 <div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid">
                     <div class="msgError"> Por favor inserte un correo válido </div>
                 </div>
+
                 <span>Contraseña:</span>
                 <input type="password"class="form-control" placeholder="Escribe la contraseña"[class.is-invalid]="loginForm.get('password')?.touched 
                 && loginForm.get('password')?.invalid" formControlName="password">
-                <!-- <input formControlName="email" type="email" placeholder="Correo">
-                <input formControlName="password" type="password" placeholder="Contraseña"> -->
-                <!--                 <button (click)="login()" type="submit" id="login-button">Iniciar sesión</button>
- -->
+                
                 <button type="submit" [disabled]="loginForm.invalid" class="btn btn-outline-dark">Iniciar
                     Sesion</button>
 

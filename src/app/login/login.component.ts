@@ -3,6 +3,7 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { UsuariosLog } from '../models/usuarios';
+import { VarGlobalesService } from '../services/var-globales.service';
 import { UsuariosService } from '../servicios/usuarios.service';
 
 @Component({
@@ -11,67 +12,52 @@ import { UsuariosService } from '../servicios/usuarios.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  loginForm!: FormGroup;
-  logs!: UsuariosLog;
+  respuesta: any;
+  esAdmin: boolean = false;
 
   constructor(
-    //private variablesGlobales: GlobalesService,
-    //private authService: AuthUserService,
-    private cookie: CookieService,
-    private router: Router,
-    private vd: FormBuilder,
-    private miServicio: UsuariosService,
-  ) { }
+    private miService:UsuariosService,
+    private variablesGlobales: VarGlobalesService, 
+    private cookie: CookieService, 
+    private router: Router) { }
 
   ngOnInit(): void {
-    this.loginForm = this.vd.group({
-      email: ["", [Validators.required, Validators.email]],
-      password: ["", [Validators.required, Validators.minLength(8)]],
-    })
-  }
-  //get f(): { [key: string]: AbstractControl} {return this.loginForm.controls; }
-  setLogueo(): void {
 
-    this.logs = {
-      email: this.loginForm.get('email')?.value,
-      password: this.loginForm.get('password')?.value
-    }
   }
-  //FORMULARIO
-      /* const miRequest = {
-        'email': this.f['email'].value,
-        'password': this.f['password'].value
-      } */
 
-      /*
+
+  loginForm = new FormGroup({
+    email : new FormControl('', [Validators.required]),
+    password : new FormControl('', [Validators.required])
+  });
+
+  get f(): { [key: string]: AbstractControl} {return this.loginForm.controls; }
+
+  login(){
+    if (this.loginForm.valid){
+      const miRequest = {
+        'email':this.f['email'].value, 
+        'password':this.f['password'].value 
+      }
       this.variablesGlobales.isLoading = true;
+      console.log(miRequest);
 
-      this.authService.login(miRequest).subscribe({
+      this.miService.login(miRequest).subscribe({
         next: (r) => [
-        this.cookie.set("Token", r.token),
-        //this.cookie.set("ID", "aquí va la id"),  
-        this.variablesGlobales.setIsLogged(true)
+        console.log("Respuesta: " + r),
+        this.cookie.set("Token", r.token.token),
+        this.variablesGlobales.setIsLogged(true),
+        this.router.navigate(['/home'])
       ],
         error: (e) => [console.error(e), this.variablesGlobales.isLoading = false],
-        complete: () => [console.info('complete'), 
-        this.variablesGlobales.isLoading = false,
-        this.router.navigate(['/home'])]
+        complete: () => [console.info('complete'), this.variablesGlobales.isLoading = false]
     })
-    */
-
-  login() {
-    if (this.loginForm.valid) {
-      this.setLogueo();
-      console.log(this.loginForm.value);
-
-      this.miServicio.login(this.logs).subscribe((data: any) => {
-        console.log(data);
-        //setItem, es para darle el valor a la variable que esta entre comillas
-        localStorage.setItem("token", data.token);
-
-        this.router.navigate(['/home']);
-
-      })
     }
   }
+
+
+  //COOKIES
+  //SET: this.cookie.set("nombre", "valor")
+  //GET: this.cookie.get("nombre")
+
 }

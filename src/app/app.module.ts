@@ -18,17 +18,20 @@ import { VerusuariosComponent } from './components/pages/usuarios/verusuarios/ve
 import { VerregistrosComponent } from './components/pages/verregistros/verregistros.component';
 import { VerzonasComponent } from './components/pages/verzonas/verzonas.component';
 
-//angular
+//MATERIALS
 import {MatTableModule} from '@angular/material/table';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatInputModule} from '@angular/material/input';
 import {MatSortModule} from '@angular/material/sort';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegistrarzonaComponent } from './components/pages/registrarzona/registrarzona.component';
-import { RegistrasensorComponent } from './components/pages/registrasensor/registrasensor.component';
+import { InterceptorService } from './services/interceptor.service';
+import { LoadingScreenComponent } from './components/pages/loading-screen/loading-screen.component';
+import { AltaSensorComponent } from './components/pages/alta-sensor/alta-sensor.component';
 
 
 @NgModule({
@@ -45,7 +48,8 @@ import { RegistrasensorComponent } from './components/pages/registrasensor/regis
     VerregistrosComponent,
     VerzonasComponent,
     RegistrarzonaComponent,
-    RegistrasensorComponent
+    LoadingScreenComponent,
+    AltaSensorComponent
   ],
   imports: [
     BrowserModule,
@@ -58,10 +62,17 @@ import { RegistrasensorComponent } from './components/pages/registrasensor/regis
     MatPaginatorModule,
     MatInputModule,
     BrowserAnimationsModule,
-    MatSortModule
+    MatSortModule,
+    MatDialogModule
 
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

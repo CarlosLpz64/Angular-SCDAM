@@ -12,20 +12,13 @@ export class ZonasService {
 
   constructor(private http: HttpClient) { }
 
-  registrarZona(az:AgregarZona):Observable<any>{
-    let headers = new HttpHeaders().set('Authorization','bearer ' + 'NjY.E5fCA4pCjM2X-ojNL13vNo0Ld7OUPakJqfo5cO0Cov0btxgwubVFLTaQ9lgB'/* localStorage.getItem('token') */)
-    return this.http.post(`${this.apiURL}api/v1/zone`,az,{headers})
+  registrarZona(data:AgregarZona):Observable<any>{
+    return this.http.post(`${this.apiURL}api/v1/zone`,data)
   }
 
   mostrarZonas(): Observable<any> {
-    let headers = new HttpHeaders().set('Authorization', 'bearer ' + 'NjY.E5fCA4pCjM2X-ojNL13vNo0Ld7OUPakJqfo5cO0Cov0btxgwubVFLTaQ9lgB')
     const url = `${this.apiURL}api/v1/zone`;
-    return this.http.get<any>(url, { headers });
+    return this.http.get<any>(url);
   }
-  /* registrarZonas(): Observable<any> {
-    let headers = new HttpHeaders().set('Authorization', 'bearer ' + 'NjY.E5fCA4pCjM2X-ojNL13vNo0Ld7OUPakJqfo5cO0Cov0btxgwubVFLTaQ9lgB')
-    const url = `${this.apiURL}api/v1/zone`;
-    return this.http.get<any>(url, { headers });
-  } */
   
 }

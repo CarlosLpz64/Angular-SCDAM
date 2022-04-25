@@ -13,8 +13,7 @@ export class RegistrosService {
   constructor(private http:HttpClient) { }
 
   mostrarRegistros(): Observable<any> {
-    let headers = new HttpHeaders().set('Authorization', 'bearer ' + 'NjY.E5fCA4pCjM2X-ojNL13vNo0Ld7OUPakJqfo5cO0Cov0btxgwubVFLTaQ9lgB')
     const url = `${this.apiURL}api/v1/indexExtendido`;
-    return this.http.get<any>(url, { headers });
+    return this.http.get<any>(url);
   }
 }

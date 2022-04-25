@@ -34,16 +34,10 @@ export class VerusuariosComponent implements OnInit, AfterViewInit {
     this.dataSource.sort = this.sort;
   }
   ngOnInit(): void {
-    this.miInterval = setInterval(() => {
-      console.log('hi')
-    }, 1000);
-    //  this.faker();
     this.cargarInfo();
   }
   ngOnDestroy() {
-    if (this.miInterval) {
-      clearInterval(this.miInterval);
-    }
+
   }
 
   miInterval: any;
