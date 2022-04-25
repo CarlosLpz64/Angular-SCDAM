@@ -1,17 +1,11 @@
-<h1>ola</h1>
-<br>
 <h1>REGISTRAR ZONA</h1>
-    <div class="container">
-      <form class="form" [formGroup]="FormControl" (ngSubmit)="registrar()">
-        <span>Name:</span>
-        <input [class.is-invalid]="FormControl.get('nombre')?.touched 
-                && FormControl.get('nombre')?.invalid" type="text" class="form-control"
-          placeholder="Nombre" formControlName="nombre"> 
-          <br>
-         <button type="submit" [disabled]="FormControl.invalid" class="btn btn-outline-dark">Dar de alta</button>
-<!--                 <button type="submit" [disabled]="FormControl">Iniciar sesión</button>
- -->
-      </form> 
-    </div>
-
-
+<div class="container">
+  <form class="form" [formGroup]="FormControl" (ngSubmit)="registrar()">
+    <span>Nombre de la zona:</span>
+    <input [class.is-invalid]="FormControl.get('nombre')?.touched 
+                && FormControl.get('nombre')?.invalid" type="text" class="form-control" placeholder="Nombre"
+      formControlName="nombre">
+    <br>
+    <button type="submit" [disabled]="FormControl.invalid" class="btn btn-outline-dark">Dar de alta</button>
+  </form>
+</div>

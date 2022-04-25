@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AgregarZona } from 'src/app/models/zonas';
+import { VarGlobalesService } from 'src/app/services/var-globales.service';
 import { ZonasService } from 'src/app/servicios/zonas.service';
 
 @Component({
@@ -12,12 +14,14 @@ import { ZonasService } from 'src/app/servicios/zonas.service';
 export class RegistrarzonaComponent implements OnInit {
 
 FormControl!: FormGroup;
-zonita!: AgregarZona;
+zonaAlta!: AgregarZona;
 
 
   constructor(private vd:FormBuilder,
     private miServicio:ZonasService,
     private route:Router,
+    private variablesGlobales: VarGlobalesService, 
+    private _snackBar: MatSnackBar
     ) { }
 
   ngOnInit(): void {
@@ -27,20 +31,30 @@ zonita!: AgregarZona;
 
   }
   setZona():void{
-    this.zonita = {
+    this.zonaAlta = {
       nombre:this.FormControl.get('nombre')?.value
     }
   }
-  registrar(): void{
+
+  registrar(){
     this.setZona();
-    console.log(this.FormControl.value);
-    this.miServicio.registrarZona(this.zonita).subscribe((data:any)=>{
-      console.log("ya jala");
-      localStorage.setItem("token",data.token);
-    },
-    error =>{
-      console.log(error);
+    if (this.FormControl.valid){
+
+      this.variablesGlobales.isLoading = true;
+
+      this.miServicio.registrarZona(this.zonaAlta).subscribe({
+        next: (r) => [
+          this.openSnackBar('Zona agregada correctamente', 'OK'),
+      ],
+        error: (e) => [console.error(e), this.variablesGlobales.isLoading = false,
+          this.openSnackBar('Error al crear zona', 'OK')],
+        complete: () => [console.info('complete'), this.variablesGlobales.isLoading = false]
     })
+    }
+  }
+
+  openSnackBar(data: string, action:string) {
+    this._snackBar.open(data, action);
   }
 
 }

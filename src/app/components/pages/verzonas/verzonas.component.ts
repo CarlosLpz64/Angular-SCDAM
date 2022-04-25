@@ -16,7 +16,7 @@ export interface ZonaElement {
   styleUrls: ['./verzonas.component.css']
 })
 export class VerzonasComponent implements OnInit,AfterViewInit {
-  displayedColumns: string[] = [ 'name'];
+  displayedColumns: string[] = [ 'nombre'];
   dataSource !: MatTableDataSource<ZonaElement>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -26,21 +26,15 @@ export class VerzonasComponent implements OnInit,AfterViewInit {
 
   constructor(private miServicio:ZonasService) { }
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    //this.dataSource.paginator = this.paginator;
+    //this.dataSource.sort = this.sort;
   }
 
   ngOnInit(): void {
-    this.miInterval = setInterval(() => {
-      console.log('hi')
-    }, 1000);
-    //  this.faker();
     this.cargarInfo();
   }
   ngOnDestroy() {
-    if (this.miInterval) {
-      clearInterval(this.miInterval);
-    }
+
   }
 
   miInterval: any;
@@ -72,71 +66,3 @@ export class VerzonasComponent implements OnInit,AfterViewInit {
 
   
  
-
-/* import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { User } from 'src/app/models/user';
-import { GlobalesService } from 'src/app/services/globales.service';
-import { UsersService } from 'src/app/services/users.service';
-
-import {MatTableDataSource} from '@angular/material/table';
-import {MatSort} from '@angular/material/sort';
-import { MatPaginator } from '@angular/material/paginator';
-
-
-export interface UserElement {
-  username: string;
-  email: number;
-  role: number;
-}
-
-@Component({
-  selector: 'app-usuarios',
-  templateUrl: './usuarios.component.html',
-  styleUrls: ['./usuarios.component.css']
-})
-export class UsuariosComponent implements OnInit {
-
-  displayedColumns: string[] = ['username', 'email', 'role'];
-
-  ListaModels: User[] = [];
-  //dataSource: any;
-  dataSource!: MatTableDataSource<UserElement>;
-
-  constructor(
-    private miService:UsersService, 
-    private variablesGlobales: GlobalesService
-    ) { 
-      this.variablesGlobales.pageName = "USUARIOS";
-    }
-
-  @ViewChild(MatSort) sort!: MatSort;
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-
-  ngOnInit(): void {
-    this.cargarInfo();
-  }
-
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-  }
-
-  reloadTable(){
-    this.cargarInfo()
-  }
-
-  cargarInfo(){
-    this.miService.index().subscribe({
-      next: (r) => [
-      console.log(r.data),
-      this.ListaModels = r.data,
-      this.dataSource = new MatTableDataSource(r.data),
-      this.dataSource.sort = this.sort,
-      this.dataSource.paginator = this.paginator
-    ],
-      error: (e) => [console.error(e)],
-      complete: () => console.info('complete') 
-    })
-  }
-
-} */
