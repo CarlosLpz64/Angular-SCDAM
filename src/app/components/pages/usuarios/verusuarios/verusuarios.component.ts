@@ -19,7 +19,7 @@ export interface UserElement {
   styleUrls: ['./verusuarios.component.css']
 })
 export class VerusuariosComponent implements OnInit, AfterViewInit {
-  displayedColumns: string[] = [ 'username', 'rol_id', 'email'];
+  displayedColumns: string[] = [ 'username', 'rol_id', 'email', 'eliminar', 'actualizar'];
   dataSource !: MatTableDataSource<UserElement>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -66,6 +66,19 @@ export class VerusuariosComponent implements OnInit, AfterViewInit {
       ]
     })
     return
+  }
+
+  eliminarUser(id: number){
+    this.miServicio.eliminarUsuarios(id).subscribe({
+      next: (r) => [
+        console.log(r)
+      ],
+      error: (e) => [console.error(e)],
+      complete: () => [
+        console.info('complete'),
+        this.cargarInfo()
+      ]
+    })
   }
 }
 

@@ -32,4 +32,8 @@ export class UsuariosService {
     return this.http.get<any>(`${this.apiURL}auth/v1/userData/`);
   }
 
+  eliminarUsuarios(id: number):Observable<any>{
+    return this.http.delete<any>(`${this.apiURL}auth/v1/user/`+id)
+  }
+
 }

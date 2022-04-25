@@ -26,7 +26,11 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSortModule} from '@angular/material/sort';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
+<<<<<<< HEAD
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+=======
+import {MatIconModule} from '@angular/material/icon';
+>>>>>>> 03aa58f0ef7302826f704f58451a4ca558c9ea2b
 
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -67,8 +71,12 @@ import { AltaSensorComponent } from './components/pages/alta-sensor/alta-sensor.
     MatSortModule,
     MatDialogModule,
     MatButtonModule,
+<<<<<<< HEAD
     MatSnackBarModule
 
+=======
+    MatIconModule
+>>>>>>> 03aa58f0ef7302826f704f58451a4ca558c9ea2b
   ],
   providers: [
     {
