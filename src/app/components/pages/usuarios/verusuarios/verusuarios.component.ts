@@ -1,9 +1,11 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild, Inject } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Usuarios } from 'src/app/models/usuarios';
 import { UsuariosService } from 'src/app/servicios/usuarios.service';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { RolesService } from 'src/app/servicios/roles.service';
 
 export interface UserElement {
   _id:number,
@@ -11,6 +13,13 @@ export interface UserElement {
   rol_id: number;
   email: string;
   password:string
+}
+
+export interface RolesElement {
+  id:number,
+  rol: string;
+  valor: string;
+  status:string
 }
 
 @Component({
@@ -27,11 +36,11 @@ export class VerusuariosComponent implements OnInit, AfterViewInit {
 
   ListaUsuarios: Usuarios[] = [];
 
-  constructor(private miServicio:UsuariosService) { }
+  constructor(private miServicio:UsuariosService, public dialog: MatDialog) { }
 
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    /* this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort; */
   }
   ngOnInit(): void {
     this.cargarInfo();
@@ -80,6 +89,56 @@ export class VerusuariosComponent implements OnInit, AfterViewInit {
       ]
     })
   }
+
+  openDialog(): void{
+
+    const dialogRef = this.dialog.open(OpcionesRoles, {
+      width: '250px'
+    });
+    
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      
+    });
+    
+  }
+
+  actualizarUser(id: number){
+    this.miServicio.actualizarUsuarios(id, 'data').subscribe({
+      next: (r) => [
+        console.log(r)
+      ],
+      error: (e) => [console.error(e)],
+      complete: () => [
+        console.info('complete'),
+        this.cargarInfo()
+      ]
+    })
+  }
+}
+
+@Component({
+  selector: 'opciones-roles',
+  templateUrl: 'opciones-roles.html'
+})
+export class OpcionesRoles {
+  constructor( public dialogRef: MatDialogRef<OpcionesRoles>, @Inject(MAT_DIALOG_DATA) public data: UserElement, private dataService: RolesService){}
+  
+
+  listaRoles: RolesElement[] = []
+
+  ngOnInit(): void {
+    this.ObtenerRoles()
+  }
+
+  ObtenerRoles(){
+    this.dataService.mostrarRoles().subscribe({
+      next: (r) => [
+        console.log(r.data)
+      ]
+    })
+  }
+
 }
 
 
