@@ -1,0 +1,22 @@
+
+<mat-form-field appearance="fill">
+    <mat-label>Selecciona el NFC</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let item of listaNfc" [value]="item.llave" (click)="cambiarNFC(item.llave)">
+        {{item.llave}}
+      </mat-option>
+      
+    </mat-select>
+</mat-form-field>
+<br><br><br>
+<mat-form-field appearance="fill">
+    <mat-label>Permiso</mat-label>
+    <mat-select>
+      <mat-option [value]="true" (click)="asignarPermiso(true)" >
+        Permitido
+      </mat-option>
+      <mat-option [value]="false" (click)="asignarPermiso(false)">
+        Denegado
+      </mat-option>
+    </mat-select>
+</mat-form-field>

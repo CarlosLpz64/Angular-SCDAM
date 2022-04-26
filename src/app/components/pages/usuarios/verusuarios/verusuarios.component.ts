@@ -22,6 +22,11 @@ export interface RolesElement {
   status:string
 }
 
+export interface NFCElement {
+  
+  llave: string
+}
+
 let usuario: number = 0
 
 @Component({
@@ -30,7 +35,7 @@ let usuario: number = 0
   styleUrls: ['./verusuarios.component.css']
 })
 export class VerusuariosComponent implements OnInit, AfterViewInit {
-  displayedColumns: string[] = [ 'username', 'rol_id', 'email', 'eliminar', 'actualizar'];
+  displayedColumns: string[] = [ 'username', 'rol_id', 'email', 'eliminar', 'actualizar', 'nfc'];
   dataSource !: MatTableDataSource<UserElement>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -108,6 +113,27 @@ export class VerusuariosComponent implements OnInit, AfterViewInit {
     
   }
 
+  openDialog2(id: number): void{
+
+    usuario = id
+
+    const dialogRef = this.dialog.open(OpcionesNFC, {
+      width: '250px'
+    });
+    
+    dialogRef.afterClosed().subscribe(result => {
+      //console.log(result)
+      this.cargarInfo()
+      console.log('The dialog was closed');
+      
+    });
+    
+  }
+
+  AsignarNFC(id: number){
+    
+  }
+
   actualizarUser(id: number){
     this.miServicio.actualizarUsuarios(id, 'data').subscribe({
       next: (r) => [
@@ -170,12 +196,80 @@ export class OpcionesRoles {
       ]
     })
   }
-
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
-
 }
+
+//----------------------------------------------------------------------------------------------------------//
+  @Component({
+    selector: 'opciones-nfc',
+    templateUrl: 'opciones-nfc.html'
+  })
+  export class OpcionesNFC {
+    constructor( public dialogRef: MatDialogRef<OpcionesNFC>, @Inject(MAT_DIALOG_DATA) public data: NFCElement, private dataService: UsuariosService){}
+    
+  
+    permiso: boolean = false;
+    listaNfc: NFCElement[] = []
+  
+    ngOnInit(): void {
+      this.ObtenerNFC()
+    }
+  
+    ObtenerNFC(){
+      this.dataService.NFCsinasignar().subscribe({
+        next: (r) => [
+          console.log(r.data),
+          this.listaNfc=r.data
+        ],
+        error: (e) => [console.error(e)],
+        complete: () => [
+          console.info('complete'),
+          
+        ]
+      })
+    }
+
+    cambiarNFC(llave: string){
+
+      const data = {
+        user_id: usuario,
+        nfc: llave,
+        permiso: this.permiso 
+      }
+      this.dataService.NFCasignar(data).subscribe({
+        next: (r) => [
+
+        ],
+        error: (e) => [console.error(e)],
+        complete: () => [
+          console.info('complete'),
+          this.dialogRef.close()
+      ]
+      })
+    }
+
+    asignarPermiso(permiso: boolean)
+    {
+      this.permiso=permiso
+    }
+  
+    /* cambiarRol(id: number){
+      console.log("entra " + id + " " + usuario)
+  
+      const data = { rol_id: id}
+  
+      this.dataService.actualizarRol(usuario, data).subscribe({
+        next: (r) => [
+          console.log(r)
+        ],
+        error: (e) => [console.error(e)],
+        complete: () => [
+          console.info('complete'),
+          this.dialogRef.close()
+        ]
+      }) */
+    //}
+
+  }
 
 
 /** Builds and returns a new User. */
