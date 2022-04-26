@@ -1,1 +1,11 @@
-hola
+
+<mat-form-field appearance="fill">
+    <mat-label>Selecciona el Rol</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let item of listaRoles" [value]="item.id" (click)="cambiarRol(item.id)">
+        {{item.rol}}
+      </mat-option>
+      
+    </mat-select>
+</mat-form-field>
+

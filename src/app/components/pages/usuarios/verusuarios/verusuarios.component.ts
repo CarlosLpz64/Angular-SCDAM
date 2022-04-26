@@ -22,6 +22,8 @@ export interface RolesElement {
   status:string
 }
 
+let usuario: number = 0
+
 @Component({
   selector: 'app-verusuarios',
   templateUrl: './verusuarios.component.html',
@@ -89,13 +91,17 @@ export class VerusuariosComponent implements OnInit, AfterViewInit {
     })
   }
 
-  openDialog(): void{
+  openDialog(id: number): void{
+
+    usuario = id
 
     const dialogRef = this.dialog.open(OpcionesRoles, {
       width: '250px'
     });
     
     dialogRef.afterClosed().subscribe(result => {
+      //console.log(result)
+      this.cargarInfo()
       console.log('The dialog was closed');
       
     });
@@ -116,6 +122,10 @@ export class VerusuariosComponent implements OnInit, AfterViewInit {
   }
 }
 
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
 @Component({
   selector: 'opciones-roles',
   templateUrl: 'opciones-roles.html'
@@ -133,9 +143,36 @@ export class OpcionesRoles {
   ObtenerRoles(){
     this.dataService.mostrarRoles().subscribe({
       next: (r) => [
-        console.log(r.data)
+        console.log(r.data),
+        this.listaRoles=r.data
+      ],
+      error: (e) => [console.error(e)],
+      complete: () => [
+        console.info('complete'),
+        
       ]
     })
+  }
+
+  cambiarRol(id: number){
+    console.log("entra " + id + " " + usuario)
+
+    const data = { rol_id: id}
+
+    this.dataService.actualizarRol(usuario, data).subscribe({
+      next: (r) => [
+        console.log(r)
+      ],
+      error: (e) => [console.error(e)],
+      complete: () => [
+        console.info('complete'),
+        this.dialogRef.close()
+      ]
+    })
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 
 }

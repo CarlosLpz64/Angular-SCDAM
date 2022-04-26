@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -14,7 +15,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { PinesGPIOComponent } from './components/pages/pines-gpio/pines-gpio.component';
 import { GraficaComponent } from './components/pages/grafica/grafica.component';
-import { VerusuariosComponent } from './components/pages/usuarios/verusuarios/verusuarios.component';
+import { OpcionesRoles, VerusuariosComponent } from './components/pages/usuarios/verusuarios/verusuarios.component';
 import { VerregistrosComponent } from './components/pages/verregistros/verregistros.component';
 import { VerzonasComponent } from './components/pages/verzonas/verzonas.component';
 
@@ -30,6 +31,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 
+import {MatSelectModule} from '@angular/material/select';
 
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -54,7 +56,8 @@ import { AltaSensorComponent } from './components/pages/alta-sensor/alta-sensor.
     VerzonasComponent,
     RegistrarzonaComponent,
     LoadingScreenComponent,
-    AltaSensorComponent
+    AltaSensorComponent,
+    OpcionesRoles
   ],
   imports: [
     BrowserModule,
@@ -72,10 +75,9 @@ import { AltaSensorComponent } from './components/pages/alta-sensor/alta-sensor.
     MatButtonModule,
     MatSnackBarModule,
     MatIconModule,
-    MatCardModule
+    MatSelectModule
   ],
-  providers: [
-    {
+  providers: [{
       provide: HTTP_INTERCEPTORS,
       useClass: InterceptorService,
       multi: true
