@@ -9,16 +9,24 @@ import { PinesGPIOComponent } from '../pines-gpio/pines-gpio.component';
 })
 export class AltaSensorComponent implements OnInit {
 
+  nombre:string = "Selecciona un sensor"
+  nombreClave:string = ""
+
   constructor(
     public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
-    this.openDialog()
+    //this.openDialog()
   }
 
   openDialog() {
     this.dialog.open(PinesGPIOComponent);
+  }
+
+  seleccionar(nombre:string, nombreClave:string){
+    this.nombre = nombre;
+    this.nombreClave = nombreClave;
   }
 
 }

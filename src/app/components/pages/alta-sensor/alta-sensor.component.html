@@ -1,1 +1,94 @@
-<p>alta-sensor works!</p>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300i,400" rel="stylesheet">
+</head>
+
+<body>
+    <br>
+    <h1>SELECCIONA UN SENSOR</h1>
+
+    <div class="container" style="margin-top: 50px;">
+
+
+        <div class="card sensor-ultr" (click)="seleccionar('Ultrasónico', 'ultrasonico')">
+            <h3 class="title">Ultrasónico</h3>
+            <div class="bar">
+                <div class="emptybar"></div>
+                <div class="filledbar"></div>
+            </div>
+            <div class="circle">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <circle class="stroke" cx="60" cy="60" r="50" />
+                </svg>
+            </div>
+        </div>
+
+
+        <div class="card sensor-pres" (click)="seleccionar('Presencia', 'presencia')">
+            <h3 class="title">Presencia</h3>
+            <div class="bar">
+                <div class="emptybar"></div>
+                <div class="filledbar"></div>
+            </div>
+            <div class="circle">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <circle class="stroke" cx="60" cy="60" r="50" />
+                </svg>
+            </div>
+        </div>
+
+
+        <div class="card sensor-infr" (click)="seleccionar('Infrarrojo', 'infrarrojo')">
+            <h3 class="title">Infrarrojo</h3>
+            <div class="bar">
+                <div class="emptybar"></div>
+                <div class="filledbar"></div>
+            </div>
+            <div class="circle">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <circle class="stroke" cx="60" cy="60" r="50" />
+                </svg>
+            </div>
+        </div>
+
+
+        <div class="card sensor-humo" (click)="seleccionar('Humo y Gas', 'humo')">
+            <h3 class="title">Humo</h3>
+            <div class="bar">
+                <div class="emptybar"></div>
+                <div class="filledbar"></div>
+            </div>
+            <div class="circle">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <circle class="stroke" cx="60" cy="60" r="50" />
+                </svg>
+            </div>
+        </div>
+
+
+        
+        <div class="card sensor-temp" (click)="seleccionar('Temperatura y humedad', 'temperatura')">
+            <h3 class="title">Temperatura y humedad</h3>
+            <div class="bar">
+                <div class="emptybar"></div>
+                <div class="filledbar"></div>
+            </div>
+            <div class="circle">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <circle class="stroke" cx="60" cy="60" r="50" />
+                </svg>
+            </div>
+        </div>
+
+
+    </div>
+
+    <br>
+
+    <mat-divider></mat-divider>
+
+    <br>
+
+    <h1>Sensor seleccionado:
+        <div class="nomSensor"> {{nombre}} </div>
+    </h1>
+</body>

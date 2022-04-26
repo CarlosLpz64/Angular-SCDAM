@@ -30,6 +30,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
+import {MatDividerModule} from '@angular/material/divider';
 
 import {MatSelectModule} from '@angular/material/select';
 
@@ -39,6 +40,7 @@ import { RegistrarzonaComponent } from './components/pages/registrarzona/registr
 import { InterceptorService } from './services/interceptor.service';
 import { LoadingScreenComponent } from './components/pages/loading-screen/loading-screen.component';
 import { AltaSensorComponent } from './components/pages/alta-sensor/alta-sensor.component';
+import { VerSensoresComponent } from './components/pages/ver-sensores/ver-sensores.component';
 
 
 @NgModule({
@@ -57,7 +59,8 @@ import { AltaSensorComponent } from './components/pages/alta-sensor/alta-sensor.
     RegistrarzonaComponent,
     LoadingScreenComponent,
     AltaSensorComponent,
-    OpcionesRoles
+    OpcionesRoles,
+    VerSensoresComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +78,8 @@ import { AltaSensorComponent } from './components/pages/alta-sensor/alta-sensor.
     MatButtonModule,
     MatSnackBarModule,
     MatIconModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDividerModule
   ],
   providers: [{
       provide: HTTP_INTERCEPTORS,
