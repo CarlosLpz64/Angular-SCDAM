@@ -35,19 +35,13 @@ export class VerregistrosComponent implements OnInit, AfterViewInit {
   }
  
   ngOnInit(): void {
-    this.miInterval = setInterval(() => {
-      console.log('hi')
-    }, 1000);
     //  this.faker();
     this.cargarInfo();
   }
   ngOnDestroy() {
-    if (this.miInterval) {
-      clearInterval(this.miInterval);
-    }
+
   }
 
-  miInterval:any;
   ListaValores:number[]=[];
   ListaFecha: string[] = [];
   titulito!: string;

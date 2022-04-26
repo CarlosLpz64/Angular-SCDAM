@@ -19,7 +19,7 @@ zonaAlta!: AgregarZona;
 
   constructor(private vd:FormBuilder,
     private miServicio:ZonasService,
-    private route:Router,
+    private router:Router,
     private variablesGlobales: VarGlobalesService, 
     private _snackBar: MatSnackBar
     ) { }
@@ -45,6 +45,7 @@ zonaAlta!: AgregarZona;
       this.miServicio.registrarZona(this.zonaAlta).subscribe({
         next: (r) => [
           this.openSnackBar('Zona agregada correctamente', 'OK'),
+          this.router.navigate(['/zonas/ver']),
       ],
         error: (e) => [console.error(e), this.variablesGlobales.isLoading = false,
           this.openSnackBar('Error al crear zona', 'OK')],

@@ -49,7 +49,6 @@ export class VerusuariosComponent implements OnInit, AfterViewInit {
 
   }
 
-  miInterval: any;
   ListaEmail: string[] = [];
   ListaNombre: string[] = []
   applyFilter(event: Event) {
