@@ -36,4 +36,8 @@ export class UsuariosService {
     return this.http.delete<any>(`${this.apiURL}auth/v1/user/`+id)
   }
 
+  actualizarUsuarios(id: number, data: any):Observable<any>{
+    return this.http.put<any>(`${this.apiURL}auth/v1/user/`+id, data)
+  }
+
 }
