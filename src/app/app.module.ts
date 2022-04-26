@@ -28,6 +28,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatIconModule} from '@angular/material/icon';
+import {MatCardModule} from '@angular/material/card';
+
 
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -69,7 +71,8 @@ import { AltaSensorComponent } from './components/pages/alta-sensor/alta-sensor.
     MatDialogModule,
     MatButtonModule,
     MatSnackBarModule,
-    MatIconModule
+    MatIconModule,
+    MatCardModule
   ],
   providers: [
     {
