@@ -17,7 +17,7 @@ export interface ZonaElement {
   styleUrls: ['./verzonas.component.css']
 })
 export class VerzonasComponent implements OnInit,AfterViewInit {
-  displayedColumns: string[] = [ 'nombre'];
+  displayedColumns: string[] = [ 'nombre', 'eliminar'];
   dataSource !: MatTableDataSource<ZonaElement>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -63,7 +63,19 @@ export class VerzonasComponent implements OnInit,AfterViewInit {
    })
    return
   }
-}
 
+  eliminarZona(id: any){
+    this.miServicio.eliminarZonas(id).subscribe({
+      next: (r) => [
+        console.log(r)
+      ],
+      error: (e) => [console.error(e)],
+      complete: () => [
+        console.info('complete'),
+        this.cargarInfo()
+      ]
+    })
+  }
+}
   
  

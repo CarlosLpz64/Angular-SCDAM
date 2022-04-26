@@ -15,7 +15,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { PinesGPIOComponent } from './components/pages/pines-gpio/pines-gpio.component';
 import { GraficaComponent } from './components/pages/grafica/grafica.component';
-import { OpcionesRoles, VerusuariosComponent } from './components/pages/usuarios/verusuarios/verusuarios.component';
+import { OpcionesNFC, OpcionesRoles, VerusuariosComponent } from './components/pages/usuarios/verusuarios/verusuarios.component';
 import { VerregistrosComponent } from './components/pages/verregistros/verregistros.component';
 import { VerzonasComponent } from './components/pages/verzonas/verzonas.component';
 
@@ -60,7 +60,8 @@ import { VerSensoresComponent } from './components/pages/ver-sensores/ver-sensor
     LoadingScreenComponent,
     AltaSensorComponent,
     OpcionesRoles,
-    VerSensoresComponent
+    VerSensoresComponent,
+    OpcionesNFC
   ],
   imports: [
     BrowserModule,

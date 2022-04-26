@@ -40,4 +40,16 @@ export class UsuariosService {
     return this.http.put<any>(`${this.apiURL}auth/v1/user/`+id, data)
   }
 
+  asignarNFC(data: any): Observable<any>{
+    return this.http.post<any>(`${this.apiURL}api/v1/user_nfc`, data)
+  }
+
+  NFCsinasignar(): Observable<any>{
+    return this.http.get<any>(`${this.apiURL}api/v1/nfc`)
+  }
+
+  NFCasignar( data:  any): Observable<any>{
+    return this.http.post<any>(`${this.apiURL}api/v1/user_nfc`, data)
+  }
+
 }

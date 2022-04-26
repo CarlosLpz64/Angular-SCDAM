@@ -20,5 +20,11 @@ export class ZonasService {
     const url = `${this.apiURL}api/v1/zone`;
     return this.http.get<any>(url);
   }
+
+  eliminarZonas(id: any): Observable<any> {
+    const url = `${this.apiURL}api/v1/zone/`+id
+
+    return this.http.delete<any>(url);
+  }
   
 }
