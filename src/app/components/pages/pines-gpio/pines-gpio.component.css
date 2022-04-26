@@ -1,9 +1,9 @@
 .flex-container{
     width: 100%;
-    height: 80vh;
+    height: 90vh;
     display: flex;
     flex-direction: row;
-    background-color: brown;
+    background-color: rgb(31, 26, 26);
     align-items: stretch;
 }
 
@@ -15,16 +15,13 @@
 }
 .flex-column-2{
     width: 40%;
-    background-color:chartreuse;
+}
+.miImg{
+    width: 100%;
+    height: 100%;
 }
 .pin-button{
     height: 100%;
-}
-
-.flex-column-2 > img{
-    width: 100%;
-    height: 100%;
-    background-color:chartreuse;
 }
 
 .voltaje{
