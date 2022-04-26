@@ -8,6 +8,7 @@ import { VerusuariosComponent } from './components/pages/usuarios/verusuarios/ve
 import { VerSensoresComponent } from './components/pages/ver-sensores/ver-sensores.component';
 import { VerregistrosComponent } from './components/pages/verregistros/verregistros.component';
 import { VerzonasComponent } from './components/pages/verzonas/verzonas.component';
+import { AdminGuard } from './guards/admin.guard';
 import { AuthGuard } from './guards/auth.guard';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -27,13 +28,13 @@ const routes: Routes = [
   {path: 'registros/grafica', component: GraficaComponent, canActivate:[AuthGuard]},
   {path: 'registros/ver', component:VerregistrosComponent, canActivate:[AuthGuard]},
   //USUARIOS
-  {path: 'usuarios/ver',component: VerusuariosComponent, canActivate:[AuthGuard]},
+  {path: 'usuarios/ver',component: VerusuariosComponent, canActivate:[AuthGuard, AdminGuard]},
   //ZONAS
   {path: 'zonas/ver',component:VerzonasComponent, canActivate:[AuthGuard]},
-  {path: 'zonas/crear', component:RegistrarzonaComponent, canActivate:[AuthGuard]},
+  {path: 'zonas/crear', component:RegistrarzonaComponent, canActivate:[AuthGuard, AdminGuard]},
   //SENSORES
   {path: 'sensores/ver', component:VerSensoresComponent, canActivate:[AuthGuard]},
-  {path: 'sensores/crear', component:AltaSensorComponent, canActivate:[AuthGuard]},
+  {path: 'sensores/crear', component:AltaSensorComponent, canActivate:[AuthGuard, AdminGuard]},
   
   {path: '**', component: NotFoundComponent}
 ];

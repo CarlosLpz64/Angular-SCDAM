@@ -8,6 +8,7 @@ export class VarGlobalesService {
 
   isLogged: boolean = false;
   isLoading: boolean = false;
+  isAdmin: boolean = false;
 
   constructor(private router: Router) { }
 

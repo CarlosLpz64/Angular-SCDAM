@@ -1,6 +1,6 @@
 <h1>SENSORES</h1>
 
-<button mat-raised-button color="primary" routerLink="/sensores/crear">Nuevo sensor</button>
+<button *ngIf="variablesGlobales.isAdmin" mat-raised-button color="primary" routerLink="/sensores/crear">Nuevo sensor</button>
 
 
 <mat-form-field appearance="standard">

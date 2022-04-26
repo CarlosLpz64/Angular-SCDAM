@@ -3,6 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Zonas } from 'src/app/models/zonas';
+import { VarGlobalesService } from 'src/app/services/var-globales.service';
 import { ZonasService } from 'src/app/servicios/zonas.service';
 
 export interface ZonaElement {
@@ -24,7 +25,7 @@ export class VerzonasComponent implements OnInit,AfterViewInit {
 
   ListaZonas: Zonas[] = [];
 
-  constructor(private miServicio:ZonasService) { }
+  constructor(private miServicio:ZonasService, public variablesGlobales: VarGlobalesService) { }
   ngAfterViewInit() {
     //this.dataSource.paginator = this.paginator;
     //this.dataSource.sort = this.sort;

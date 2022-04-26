@@ -32,6 +32,8 @@ export class NavBarComponent implements OnInit {
         console.log("Sesión cerrada"),
         this.cookie.set("Token", ""),
         this.variablesGlobales.setIsLogged(false),
+        this.variablesGlobales.isAdmin = false,
+        this.cookie.set("Rol", '0'),
         this.router.navigate(['/login'])
         ],
       error: (e) => [console.error(e), this.variablesGlobales.isLoading = false],

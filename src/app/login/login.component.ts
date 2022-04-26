@@ -46,12 +46,22 @@ export class LoginComponent implements OnInit {
         next: (r) => [
         console.log("Respuesta: " + r),
         this.cookie.set("Token", r.token.token),
+        this.cookie.set("Rol", r.dataUser.rol_id),
         this.variablesGlobales.setIsLogged(true),
+        this.setRol(r.dataUser.rol_id),
         this.router.navigate(['/home'])
       ],
         error: (e) => [console.error(e), this.variablesGlobales.isLoading = false],
         complete: () => [console.info('complete'), this.variablesGlobales.isLoading = false]
     })
+    }
+  }
+
+  setRol(rol: string){
+    if (rol == '1'){
+      this.variablesGlobales.isAdmin = true;
+    }else{
+      this.variablesGlobales.isAdmin = false;
     }
   }
 

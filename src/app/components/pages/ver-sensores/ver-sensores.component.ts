@@ -3,6 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { SensorService } from 'src/app/services/sensor.service';
+import { VarGlobalesService } from 'src/app/services/var-globales.service';
 
 export interface RegistroElement {
   _id: string,
@@ -25,7 +26,7 @@ export class VerSensoresComponent implements OnInit {
 
   ListaRegistro: any[] = [];
 
-  constructor(private miServicio:SensorService) { }
+  constructor(private miServicio:SensorService, public variablesGlobales: VarGlobalesService) { }
 
   ngOnInit(): void {
     this.cargarInfo();

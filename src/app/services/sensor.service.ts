@@ -13,4 +13,8 @@ export class SensorService {
   index(): Observable<any> {
     return this.http.get<any>(`${environment.apiURL}api/v1/sensores`);
   }
+
+  altaSensor(data:any):Observable<any>{
+    return this.http.post(`${environment.apiURL}api/v1/sensores`,data)
+  }
 }

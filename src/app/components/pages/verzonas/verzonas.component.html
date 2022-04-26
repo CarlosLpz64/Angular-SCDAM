@@ -1,6 +1,6 @@
 <h1>ZONAS</h1>
 
-<button mat-raised-button color="primary" routerLink="/zonas/crear">Nueva zona</button>
+<button *ngIf="variablesGlobales.isAdmin" mat-raised-button color="primary" routerLink="/zonas/crear">Nueva zona</button>
 
 <mat-form-field appearance="standard">
   <mat-label>Filter</mat-label>

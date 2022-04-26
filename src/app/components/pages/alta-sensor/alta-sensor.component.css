@@ -1,6 +1,8 @@
-body {
+
+  .bodyFake{
     background-color: #100e17;
     font-family: 'Open Sans', sans-serif;
+    height: 155vh;
   }
   
   .container {

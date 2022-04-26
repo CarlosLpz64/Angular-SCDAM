@@ -6,7 +6,7 @@
             <!-- HOME -->
             <li><a routerLink="/home">Home</a></li>
             <!-- USUARIOS -->
-            <li><a>Usuarios<span class="arrow-down"></span></a>
+            <li *ngIf="variablesGlobales.isAdmin"><a>Usuarios<span class="arrow-down"></span></a>
               <ul class="dropdown">
                 <li><a routerLink="/usuarios/ver"> Ver usuarios </a></li>
               </ul>

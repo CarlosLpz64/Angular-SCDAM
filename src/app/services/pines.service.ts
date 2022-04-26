@@ -15,4 +15,8 @@ export class PinesService {
     return this.http.get<any>(url);
   }
 
+  cambiarPin(data:any, id:string):Observable<any>{
+    return this.http.put(`${environment.apiURL}api/v1/arduinoPorts/${id}`,data)
+  }
+
 }

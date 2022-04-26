@@ -162,7 +162,7 @@ export class PinesGPIOComponent implements OnInit {
   puertoSeleccionado(board: number){
       this.pines.forEach(element => {
           if (element.board == board){
-              alert(element.BCM)
+              alert("PIN: " + element.board)
           }
       });
   }

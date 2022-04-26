@@ -53,6 +53,8 @@ export class SignupComponent implements OnInit {
           console.log("Respuesta: " + r),
           this.cookie.set("Token", r.token.token),
           this.variablesGlobales.setIsLogged(true),
+          this.variablesGlobales.isAdmin = false,
+          this.cookie.set("Rol", '2'),
           this.router.navigate(['/home'])
         ],
           error: (e) => [console.error(e), this.variablesGlobales.isLoading = false],
