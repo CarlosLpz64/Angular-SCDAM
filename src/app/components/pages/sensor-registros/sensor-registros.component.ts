@@ -32,8 +32,8 @@ export class SensorRegistrosComponent implements OnInit {
   constructor(private miServicio:RegistrosService, private cookie: CookieService) { }
 
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    //this.dataSource.paginator = this.paginator;
+    //this.dataSource.sort = this.sort;
   }
  
   ngOnInit(): void {

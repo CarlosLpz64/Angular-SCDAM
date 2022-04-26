@@ -32,8 +32,8 @@ export class VerregistrosComponent implements OnInit, AfterViewInit {
   constructor(private miServicio:RegistrosService) { }
 
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    //this.dataSource.paginator = this.paginator;
+    //this.dataSource.sort = this.sort;
   }
  
   ngOnInit(): void {
