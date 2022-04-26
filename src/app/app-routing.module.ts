@@ -4,6 +4,7 @@ import { AltaSensorComponent } from './components/pages/alta-sensor/alta-sensor.
 import { GraficaComponent } from './components/pages/grafica/grafica.component';
 import { PinesGPIOComponent } from './components/pages/pines-gpio/pines-gpio.component';
 import { RegistrarzonaComponent } from './components/pages/registrarzona/registrarzona.component';
+import { SensorRegistrosComponent } from './components/pages/sensor-registros/sensor-registros.component';
 import { VerusuariosComponent } from './components/pages/usuarios/verusuarios/verusuarios.component';
 import { VerSensoresComponent } from './components/pages/ver-sensores/ver-sensores.component';
 import { VerregistrosComponent } from './components/pages/verregistros/verregistros.component';
@@ -35,7 +36,8 @@ const routes: Routes = [
   //SENSORES
   {path: 'sensores/ver', component:VerSensoresComponent, canActivate:[AuthGuard]},
   {path: 'sensores/crear', component:AltaSensorComponent, canActivate:[AuthGuard, AdminGuard]},
-  
+  {path: 'sensores/registros', component:SensorRegistrosComponent, canActivate:[AuthGuard, AdminGuard]},
+
   {path: '**', component: NotFoundComponent}
 ];
 

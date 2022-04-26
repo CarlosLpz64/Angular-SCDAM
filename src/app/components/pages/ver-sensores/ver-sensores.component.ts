@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import { SensorService } from 'src/app/services/sensor.service';
 import { VarGlobalesService } from 'src/app/services/var-globales.service';
 
@@ -26,7 +28,7 @@ export class VerSensoresComponent implements OnInit {
 
   ListaRegistro: any[] = [];
 
-  constructor(private miServicio:SensorService, public variablesGlobales: VarGlobalesService) { }
+  constructor(private miServicio:SensorService, public variablesGlobales: VarGlobalesService, private cookie: CookieService, private router: Router) { }
 
   ngOnInit(): void {
     this.cargarInfo();
@@ -54,5 +56,10 @@ export class VerSensoresComponent implements OnInit {
       ]
     })
     return
+  }
+
+  getRegistros(id: string){
+    this.cookie.set("Sensor", id)
+    this.router.navigate(['/sensores/registros'])
   }
 }

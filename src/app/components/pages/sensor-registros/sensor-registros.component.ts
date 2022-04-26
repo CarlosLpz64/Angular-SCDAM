@@ -1,7 +1,8 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { CookieService } from 'ngx-cookie-service';
 import { Registros } from 'src/app/models/registros';
 import { RegistrosService } from 'src/app/servicios/registros.service';
 
@@ -14,11 +15,12 @@ export interface RegistroElement {
 }
 
 @Component({
-  selector: 'app-verregistros',
-  templateUrl: './verregistros.component.html',
-  styleUrls: ['./verregistros.component.css']
+  selector: 'app-sensor-registros',
+  templateUrl: './sensor-registros.component.html',
+  styleUrls: ['./sensor-registros.component.css']
 })
-export class VerregistrosComponent implements OnInit, AfterViewInit {
+export class SensorRegistrosComponent implements OnInit {
+
   displayedColumns: string[] = ['Sensor','Unidad','Valor','Fecha' ];
   dataSource !: MatTableDataSource<RegistroElement>;
 
@@ -27,9 +29,7 @@ export class VerregistrosComponent implements OnInit, AfterViewInit {
 
   ListaRegistro: Registros[] = [];
 
-  miInterval: any;
-
-  constructor(private miServicio:RegistrosService) { }
+  constructor(private miServicio:RegistrosService, private cookie: CookieService) { }
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
@@ -37,16 +37,11 @@ export class VerregistrosComponent implements OnInit, AfterViewInit {
   }
  
   ngOnInit(): void {
+    //  this.faker();
     this.cargarInfo();
-
-    this.miInterval = setInterval(() => {
-      this.cargarInfo()
-    }, 2000); 
   }
   ngOnDestroy() {
-    if (this.miInterval) {
-      clearInterval(this.miInterval);
-    }
+
   }
 
   ListaValores:number[]=[];
@@ -63,7 +58,7 @@ export class VerregistrosComponent implements OnInit, AfterViewInit {
     }
   }
   cargarInfo(){
-    this.miServicio.mostrarRegistros().subscribe({
+    this.miServicio.mostrarRegistroSensor(this.cookie.get("Sensor")).subscribe({
       next: (r) => [
       console.log(r.data),
       this.ListaRegistro = r.data,
@@ -92,4 +87,5 @@ export class VerregistrosComponent implements OnInit, AfterViewInit {
       this.ListaFecha.push(aux)
     })
   }
+
 }

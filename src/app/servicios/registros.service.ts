@@ -16,4 +16,9 @@ export class RegistrosService {
     const url = `${this.apiURL}api/v1/indexExtendido`;
     return this.http.get<any>(url);
   }
+
+  mostrarRegistroSensor(id:string): Observable<any> {
+    const url = `${this.apiURL}api/v1/configuracion/${id}`;
+    return this.http.get<any>(url);
+  }
 }

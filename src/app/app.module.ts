@@ -41,6 +41,7 @@ import { InterceptorService } from './services/interceptor.service';
 import { LoadingScreenComponent } from './components/pages/loading-screen/loading-screen.component';
 import { AltaSensorComponent } from './components/pages/alta-sensor/alta-sensor.component';
 import { VerSensoresComponent } from './components/pages/ver-sensores/ver-sensores.component';
+import { SensorRegistrosComponent } from './components/pages/sensor-registros/sensor-registros.component';
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import { VerSensoresComponent } from './components/pages/ver-sensores/ver-sensor
     LoadingScreenComponent,
     AltaSensorComponent,
     OpcionesRoles,
-    VerSensoresComponent
+    VerSensoresComponent,
+    SensorRegistrosComponent
   ],
   imports: [
     BrowserModule,
