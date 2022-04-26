@@ -113,23 +113,21 @@
   .card__category{
    /*  color: var(--text-light); */
    color: black;
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     margin-bottom: var(--spacing-s);
-    text-transform: uppercase;
   }
   .card__category_blanco{
     /*  color: var(--text-light); */
     color: white;
-     font-size: 0.9rem;
+     font-size:1.2rem;
      margin-bottom: var(--spacing-s);
-     text-transform: uppercase;
    }
    .card__category_gris{
     /*  color: var(--text-light); */
     color: gray;
      font-size: 0.9rem;
      margin-bottom: var(--spacing-s);
-     text-transform: uppercase;
+
    }
   
   .card__heading{
